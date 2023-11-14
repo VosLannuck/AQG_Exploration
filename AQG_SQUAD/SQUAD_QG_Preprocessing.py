@@ -34,7 +34,6 @@ SQUAD_DEV_PATH : str = os.path.join(WORKING_DIR,"SQUAD_dataset/dev.json")
 
 SQUAD_TRAIN_DF : pd.DataFrame = pd.read_json(SQUAD_TRAIN_PATH)
 SQUAD_DEV_DF : pd.DataFrame = pd.read_json(SQUAD_DEV_PATH)
-TEST_TRAIN_df =pd.read_csv(os.path.join(WORKING_DIR, "SQUAD_dataset/train_df.csv"))
 DATA_COLUMN : str = "data"
 
 TITLE : str ='title'
@@ -150,9 +149,9 @@ def MakeDatasetPerQuestion(df : pd.DataFrame, save_csv_name="train_squad_df.csv"
     print("The Dataset has been saved :D")
                 
                 
-MakeDatasetPerQuestion(SQUAD_TRAIN_DF)
+#MakeDatasetPerQuestion(SQUAD_TRAIN_DF)
+MakeDatasetPerQuestion(SQUAD_DEV_DF,"val_squad_df.csv")
 #%%
-TEST_TRAIN_df["context_sent"].values[0]
 #%%
 if __name__ == "__main__":
     showQuestion(SQUAD_TRAIN_DF)
